@@ -2,6 +2,7 @@ import React from "react";
 import UserCreate from "./UserCreate";
 import LanguageContext from "../contexts/LanguageContext";
 import ColorContext from "../contexts/ColorContext";
+import LanguageSelector from "./LangualrSelector";
 
 class App extends React.Component {
   state = { language: "english", color: "primary" };
@@ -13,17 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <div>
-          Select Language
-          <i
-            className="flag us"
-            onClick={() => this.onLanguageChange("english", "primary")}
-          />
-          <i
-            className="flag nl"
-            onClick={() => this.onLanguageChange("dutch", "red")}
-          />
-        </div>
+        <LanguageSelector onLanguageChange={this.onLanguageChange} />
         {/* provider creates a new channel/pipe of information, every time it calls */}
         {/* Provider get value from state */}
         <LanguageContext.Provider value={this.state.language}>
